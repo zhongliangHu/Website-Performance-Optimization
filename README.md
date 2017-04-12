@@ -32,7 +32,7 @@
 
 ----
 
-####Part 2: 优化 pizza.html 的 FPS（每秒帧数）
+#### Part 2: 优化 pizza.html 的 FPS（每秒帧数）
 
 你需要编辑 views/js/main.js 来优化 views/pizza.html，直到这个网页的 FPS 达到或超过 60fps。你会在 main.js 中找到一些对此有帮助的注释。
 
