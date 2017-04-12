@@ -6,7 +6,7 @@
 
 ### 指南
 
-####Part 1: 优化 index.html 的 PageSpeed Insights 得分
+#### Part 1: 优化 index.html 的 PageSpeed Insights 得分
 
 以下是几个帮助你顺利开始本项目的提示：
 
