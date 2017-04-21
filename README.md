@@ -4,6 +4,8 @@
 
 开始前，请导出这个代码库并检查代码。
 
+### Online version: https://zhonglianghu.github.io/Website-Performance-Optimization/
+
 ### 指南
 
 #### Part 1: 优化 index.html 的 PageSpeed Insights 得分
