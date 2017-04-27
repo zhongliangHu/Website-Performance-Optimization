@@ -518,13 +518,18 @@ function updatePositions() {
 }
 
 // 在页面滚动时运行updatePositions函数
-window.addEventListener('scroll', updatePositions);
+window.addEventListener('scroll',updatePositions);
+// window.addEventListener('scroll',requestAnimationFrame(updatePositions));
+// window.addEventListener('scroll', function animloop(){
+//   updatePositions();
+//   requestAnimationFrame(animloop);
+// });
 
 // 当页面加载时生成披萨滑窗
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 100; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -534,5 +539,6 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.getElementById("movingPizzas1").appendChild(elem);
   }
-  updatePositions();
+  // updatePositions();
+  requestAnimationFrame(updatePositions);
 });
