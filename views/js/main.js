@@ -499,12 +499,18 @@ function logAverageFrame(times) {   // times参数是updatePositions()由User Ti
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-
   var items = document.getElementsByClassName('mover');
   var scrollTop = document.body.scrollTop;
+  // movingPizzas1.style.willChange = 'transform';
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    var changeLeft = items[i].basicLeft + 100 * phase - 585; //为什么要减去585（红色部分宽的一半）才能和left效果一样
+    // items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    items[i].style.webkitTransform = "translateX(" + changeLeft  + "px)";
+    // items[i].style.msTransform = "translateX(" + changeLeft + "px)";
+    // items[i].style.MozTransform = "translateX(" + changeLeft + "px)";
+    // items[i].style.OTransform = "translateX(" + changeLeft + "px)";
+    // items[i].style.transform = "translateX(" + changeLeft + "px)";
   }
 
   // 再次使用User Timing API。这很值得学习
@@ -529,6 +535,7 @@ window.addEventListener('scroll',updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  var movingPizzas1 = document.getElementById("movingPizzas1");
   for (var i = 0; i < 100; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
@@ -537,8 +544,8 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.getElementById("movingPizzas1").appendChild(elem);
+    movingPizzas1.appendChild(elem);
   }
-  // updatePositions();
-  requestAnimationFrame(updatePositions);
+  updatePositions();
+  // requestAnimationFrame(updatePositions);
 });
