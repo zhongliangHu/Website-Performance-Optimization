@@ -504,9 +504,9 @@ function updatePositions() {
   // movingPizzas1.style.willChange = 'transform';
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((scrollTop / 1250) + (i % 5));
-    var changeLeft = items[i].basicLeft + 100 * phase - 585; //为什么要减去585（红色部分宽的一半）才能和left效果一样
-    // items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-    items[i].style.webkitTransform = "translateX(" + changeLeft  + "px)";
+    // var changeLeft = items[i].basicLeft + 100 * phase - 585*2; //为什么要减去585（红色部分宽的一半）才能和left效果一样
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    // items[i].style.webkitTransform = "translateX(" + changeLeft  + "px)";
     // items[i].style.msTransform = "translateX(" + changeLeft + "px)";
     // items[i].style.MozTransform = "translateX(" + changeLeft + "px)";
     // items[i].style.OTransform = "translateX(" + changeLeft + "px)";
