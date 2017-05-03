@@ -7,9 +7,10 @@
 ### 指南
 
 #### Part 1: 优化 index.html 的 PageSpeed Insights 得分
+目标：优化index.html的PageSpeed Insights得分达到90分以上。
 
 1. 复制上面Online Version在线地址，然后通过google的PageSpeed Insights访问，进行配置、优化、检测。
-2. 首先利用gulp构建工具进行自动化图片压缩，具体gulp的安装及自动化压缩图片操作可见个人学习总结过程：[Gulp安装及其自动化压缩图片的应用](https://zhuanlan.zhihu.com/p/26534023)。
+2. 首先利用gulp构建工具进行自动化图片压缩，具体gulp的安装及自动化压缩图片操作可见个人学习总结过程：[Gulp安装及其自动化压缩图片的应用](https://zhuanlan.zhihu.com/p/26534023),再对图片的宽高设置成合理的大小。
 3. 对web字体进行优化。
 4. 将js进行异步加载、优化css加载等操作提高PageSpeed Insights检测分数。
 
@@ -17,11 +18,15 @@
 
 #### Part 2: 优化 pizza.html 的 FPS（每秒帧数）
 
-你需要编辑 views/js/main.js 来优化 views/pizza.html，直到这个网页的 FPS 达到或超过 60fps。你会在 main.js 中找到一些对此有帮助的注释。
+目标：需要编辑 views/js/main.js 来优化 views/pizza.html，直到这个网页的 FPS 达到或超过 60fps；滑动滑块改变pizza大小时，时间小于5ms。
 
-你可以在 Chrome 开发者工具帮助中找到关于 FPS 计数器和 HUD 显示的有用信息。[Chrome 开发者工具帮助](https://developer.chrome.com/devtools/docs/tips-and-tricks).
+1. 将for循环遍历元素的offsetWidth所造成的布局抖动进行更改，提取需读取页面信息（offsetWidth）的语句至for循环外。
+2. 将querySelector()、querySelectorAll()更改为getElementById()或getElementsByClassName()。
+3. 用transform代替left去移动pizza，减少重新绘制pizza工作，提高网页帧数。
+4. requestAnimationFrame()优化updatePositions背景pizza移动的动画。
+5. 背景pizza的位置fixed,减少pizza个数至22个左右即可实现效果，从而减少计算量，提高FPS。
 
-### 一些关于优化的提示与诀窍
+### 一些关于优化的诀窍
 * [web 性能优化](https://developers.google.com/web/fundamentals/performance/ "web 性能")
 * [分析关键渲染路径](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "分析关键渲染路径")
 * [优化关键渲染路径](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "优化关键渲染路径！")

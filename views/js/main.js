@@ -398,19 +398,19 @@ var pizzaElementGenerator = function(i) {
 // 当网站中"Our Pizzas"的滑窗部分移动时调用resizePizzas(size)函数
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API 函数
-  var pizzaSizeHtml = document.getElementById("pizzaSize").innerHTML;
+
   // 改变滑窗前披萨的尺寸值
   function changeSliderLabel(size) {
-
+  var pizzaSize = document.getElementById("pizzaSize");
     switch(size) {
       case "1":
-        pizzaSizeHtml = "Small";
+        pizzaSize.innerHTML = "Small";
         return;
       case "2":
-        pizzaSizeHtml = "Medium";
+        pizzaSize.innerHTML = "Medium";
         return;
       case "3":
-        pizzaSizeHtml = "Large";
+        pizzaSize.innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -451,7 +451,8 @@ var resizePizzas = function(size) {
     var randomPizzaContainers = document.getElementsByClassName("randomPizzaContainer");
     var oldWidth = randomPizzaContainers[0].offsetWidth; //randomPizzaContainers数组内每组的offsetWidth值都一致,因此将elem传参变为oldWidth；
     var dx = determineDx(oldWidth, size);  //randomPizzaContainers数组内每组的dx值都一致，因此determineDx函数执行一次即可
-    for (var i = 0; i < randomPizzaContainers.length; i++) {
+    var randomPizzaContainersLength = randomPizzaContainers.length;
+    for (var i = 0; i < randomPizzaContainersLength; i++) {
       var newwidth = ( oldWidth + dx) + 'px';   //randomPizzaContainers[i].offsetWidth 用oldWidth=randomPizzaContainers[0].offsetWidth代替
       randomPizzaContainers[i].style.width = newwidth;
     }
@@ -505,7 +506,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
   var scrollTop = document.body.scrollTop;
-  //movingPizzas1.style.willChange = 'transform';
+  // movingPizzas1.style.willChange = 'transform';
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((scrollTop / 1250) + (i % 5));
     var changeLeft = items[i].basicLeft + 100 * phase - screenWidth/2;  //#movingPizzas1父级位置在屏幕中间，translate从父级最左边开始移动
@@ -543,8 +544,7 @@ var cols = 8;
 var s = 256;
 var movingPizzas1 = document.getElementById("movingPizzas1");
 document.addEventListener('DOMContentLoaded', function() {
-
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 22; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
