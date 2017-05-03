@@ -5,8 +5,9 @@ gulp.task('images', function(){
     .pipe(imagemin({
        interlaced: true, //类型：Boolean 默认：false 隔行扫描gif进行渲染
        optimizationLevel: 5, //类型：Number  默认：3  取值范围：0-7（优化等级）
-       progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
-       multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
+       progressive: false, //类型：Boolean 默认：false 无损压缩jpg图片
+       multipass: true, //类型：Boolean 默认：false 多次优化svg直到完全优化
+       verbose: true
      }))
     .pipe(gulp.dest('img'));
 });
