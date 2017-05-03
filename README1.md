@@ -1,17 +1,36 @@
 ## 网站性能优化项目
 
-优化目标：尽可能优化此在线项目的速度，开始前，将该项目代码库下载检查并上传至github，生成在线地址进行一系列的网站性能优化。
+你要做的是尽可能优化这个在线项目的速度。注意，请应用你之前在[网站性能优化课程](https://cn.udacity.com/course/website-performance-optimization--ud884/)中学习的技术来优化关键渲染路径并使这个页面尽可能快的渲染。
 
-### Online Version: https://zhonglianghu.github.io/Website-Performance-Optimization/
+开始前，请导出这个代码库并检查代码。
+
+### Online version: https://zhonglianghu.github.io/Website-Performance-Optimization/
 
 ### 指南
 
 #### Part 1: 优化 index.html 的 PageSpeed Insights 得分
 
-1. 复制上面Online Version在线地址，然后通过google的PageSpeed Insights访问，进行配置、优化、检测。
-2. 首先利用gulp构建工具进行自动化图片压缩，具体gulp的安装及自动化压缩图片操作可见个人学习总结过程：[Gulp安装及其自动化压缩图片的应用](https://zhuanlan.zhihu.com/p/26534023)。
-3. 对web字体进行优化。
-4. 将js进行异步加载、优化css加载等操作提高PageSpeed Insights检测分数。
+以下是几个帮助你顺利开始本项目的提示：
+
+1. 将这个代码库导出
+2. 你可以运行一个本地服务器，以便在你的手机上检查这个站点
+
+```bash
+  $> cd /你的工程目录
+  $> python -m SimpleHTTPServer 8080
+```
+
+1. 打开浏览器，访问 localhost:8080
+2. 下载 [ngrok](https://ngrok.com/) 并将其安装在你的工程根目录下，让你的本地服务器能够被远程访问。
+
+``` bash
+  $> cd /你的工程目录
+  $> ./ngrok http 8080
+```
+
+1. 复制ngrok提供给你的公共URL，然后尝试通过PageSpeed Insights访问它吧！可选阅读：[更多关于整合ngrok、Grunt和PageSpeed的信息](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)。
+
+接下来，你可以一遍又一遍的进行配置、优化、检测了！祝你好运！
 
 ----
 
