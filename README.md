@@ -14,6 +14,7 @@
 3. 对web字体进行优化。
 4. 将js进行异步加载、优化css加载等操作提高PageSpeed Insights检测分数。
 
+* PS:[Remove node_modules from git repo(从git库中删除node_modules文件,在.gitignore中添加```node_modules```文件名，防止上传至git repo)](https://gist.github.com/paulallies/0052fab554b14bbfa3ef)
 ----
 
 #### Part 2: 优化 pizza.html 的 FPS（每秒帧数）
