@@ -4,7 +4,6 @@
 
 ### Online Version: https://zhonglianghu.github.io/Website-Performance-Optimization/
 
-### 指南
 
 #### Part 1: 优化 index.html 的 PageSpeed Insights 得分
 目标：优化index.html的PageSpeed Insights得分达到90分以上。
